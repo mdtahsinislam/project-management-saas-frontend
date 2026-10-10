@@ -486,12 +486,56 @@ All write operations that change tasks create Activity Logs
 ```
 
 
-# Live Links
+# 🌐 Live Links
 
-```
-Item,URL
-Production API,https://project-management-saas-eta.vercel.app
-Login Endpoint,https://project-management-saas-eta.vercel.app/api/v1/auth/login
-Admin Dashboard,https://project-management-saas-eta.vercel.app/api/v1/admin/dashboard
+<table>
+  <thead>
+    <tr>
+      <th align="center">Item</th>
+      <th align="left">URL</th>
+      <th align="center">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>🚀 Production API</strong></td>
+      <td>
+        <a href="https://project-management-saas-eta.vercel.app">https://project-management-saas-eta.vercel.app</a>
+      </td>
+      <td align="center">
+        <a href="https://project-management-saas-eta.vercel.app">
+          <img src="https://img.shields.io/badge/Visit-Production_API-blue?style=for-the-badge" alt="Visit Production API" />
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>🔐 Login Endpoint</strong></td>
+      <td>
+        <a href="https://project-management-saas-eta.vercel.app/api/v1/auth/login">https://project-management-saas-eta.vercel.app/api/v1/auth/login</a>
+      </td>
+      <td align="center">
+        <a href="https://project-management-saas-eta.vercel.app/api/v1/auth/login">
+          <img src="https://img.shields.io/badge/API-Login-green?style=for-the-badge" alt="Login Endpoint" />
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>🛡️ Admin Dashboard API</strong></td>
+      <td>
+        <a href="https://project-management-saas-eta.vercel.app/api/v1/admin/dashboard">https://project-management-saas-eta.vercel.app/api/v1/admin/dashboard</a>
+      </td>
+      <td align="center">
+        <a href="https://project-management-saas-eta.vercel.app/api/v1/admin/dashboard">
+          <img src="https://img.shields.io/badge/API-Admin_Dashboard-purple?style=for-the-badge" alt="Admin Dashboard API" />
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-```
+---
+
+<p align="center">
+  <strong>🚀 Project Management SaaS</strong><br/>
+  <sub>Production API · Authentication · Admin Dashboard</sub>
+</p>
