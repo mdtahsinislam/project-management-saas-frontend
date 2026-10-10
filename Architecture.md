@@ -27,6 +27,9 @@
 ```
 
 ```
+# 🚀 Tech Stack
+
+2. Frontend Technology
 Layer,Live URL
 Frontend,https://project-management-saas-frontend-one.vercel.app
 Backend API,https://project-management-saas-eta.vercel.app/api/v1
@@ -103,3 +106,86 @@ Database,Prisma Postgres (pooled.db.prisma.io)
   </tbody>
 </table>
 
+
+
+# 🚀 Tech Stack & Deployment
+
+## 2. Frontend Technology & Live URLs
+
+<table>
+  <thead>
+    <tr>
+      <th align="center">Layer</th>
+      <th align="center">Technology / Service</th>
+      <th align="center">Live URL / Details</th>
+      <th align="center">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Frontend</strong></td>
+      <td>
+        <img src="https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=next.js&logoColor=white" alt="Next.js" />
+        <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript" />
+        <img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white" alt="Tailwind CSS" />
+      </td>
+      <td>
+        <a href="https://project-management-saas-frontend-one.vercel.app" target="_blank">🌐 Visit Frontend</a>
+      </td>
+      <td><img src="https://img.shields.io/badge/Deployed-Vercel-black?style=flat-square&logo=vercel" alt="Vercel Deployment" /></td>
+    </tr>
+    <tr>
+      <td><strong>Backend API</strong></td>
+      <td>
+        <img src="https://img.shields.io/badge/REST_API-009688?style=flat-square" alt="REST API" />
+        <img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white" alt="Node.js" />
+      </td>
+      <td>
+        <a href="https://project-management-saas-eta.vercel.app/api/v1" target="_blank">⚙️ API Base URL</a>
+      </td>
+      <td><img src="https://img.shields.io/badge/Deployed-Vercel-black?style=flat-square&logo=vercel" alt="Vercel Deployment" /></td>
+    </tr>
+    <tr>
+      <td><strong>Database</strong></td>
+      <td>
+        <img src="https://img.shields.io/badge/Prisma_Postgres-2D3748?style=flat-square&logo=prisma&logoColor=white" alt="Prisma Postgres" />
+      </td>
+      <td>Prisma Postgres — <code>pooled.db.prisma.io</code></td>
+      <td><img src="https://img.shields.io/badge/Database-Configured-blue?style=flat-square" alt="Database" /></td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
+## 🔗 Quick Access
+
+<table>
+  <thead>
+    <tr>
+      <th>Service</th>
+      <th>URL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>🌐 Live Frontend</td>
+      <td><a href="https://project-management-saas-frontend-one.vercel.app">https://project-management-saas-frontend-one.vercel.app</a></td>
+    </tr>
+    <tr>
+      <td>⚙️ Backend API</td>
+      <td><a href="https://project-management-saas-eta.vercel.app/api/v1">https://project-management-saas-eta.vercel.app/api/v1</a></td>
+    </tr>
+    <tr>
+      <td>🗄️ Database</td>
+      <td>Prisma Postgres (pooled.db.prisma.io)</td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
+<p align="center">
+  <strong>🚀 Project Management SaaS</strong><br/>
+  Built with Next.js, TypeScript, and Prisma Postgres.
+</p>
