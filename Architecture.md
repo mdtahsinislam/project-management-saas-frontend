@@ -47,3 +47,59 @@ Database,Prisma Postgres (pooled.db.prisma.io)
   <img src="https://img.shields.io/badge/Google_Identity_Services-4285F4?style=for-the-badge&logo=google&logoColor=white" alt="Google Identity Services" />
 </p>
 
+
+# 3. Role-Based Architecture
+```
+                    ┌─────────────┐
+                    │   PUBLIC    │
+                    │ Home, About │
+                    │ Pricing,... │
+                    └──────┬──────┘
+                           │ Login / Register / Google
+                           ▼
+              ┌────────────┴────────────┐
+              │                         │
+     ┌────────▼────────┐     ┌──────────▼──────────┐
+     │     ADMIN       │     │       OWNER         │
+     │ /admin/*        │     │ /owner/*            │
+     │ • Dashboard     │     │ • Organizations     │
+     │ • Users         │     │ • Projects          │
+     │ • Orgs/Projects │     │ • Tasks             │
+     │ • Payments      │     │ • Profile           │
+     │ • Audit Logs    │     └──────────┬──────────┘
+     └─────────────────┘                │
+                                        │ assigns tasks
+                           ┌────────────▼────────────┐
+                           │        MEMBER           │
+                           │ /member/*               │
+                           │ • My Tasks              │
+                           │ • Profile               │
+                           │ • Google login default  │
+                           └─────────────────────────┘
+```
+```
+## 🔐 Role-Based Access Control (RBAC)
+
+<table>
+  <thead>
+    <tr>
+      <th align="center">Role</th>
+      <th align="left">Access Permissions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center"><strong>ADMIN</strong></td>
+      <td>Full system access: Users, Organizations, Projects, Tasks, Payments, and Audit Logs</td>
+    </tr>
+    <tr>
+      <td align="center"><strong>OWNER</strong></td>
+      <td>Own Organizations → Projects → Tasks</td>
+    </tr>
+    <tr>
+      <td align="center"><strong>MEMBER</strong></td>
+      <td>Assigned Tasks, Comments, and Task Status Updates</td>
+    </tr>
+  </tbody>
+</table>
+```
