@@ -247,3 +247,241 @@ project-management-saas/                    # Backend
 └── package.json
 
 ```
+
+# 5. Frontend Folder Structure
+```
+project-management-saas-frontend/
+├── src/
+│   ├── app/
+│   │   ├── page.tsx                        # Landing
+│   │   ├── about/, contact/, features/, pricing/
+│   │   ├── login/, register/
+│   │   ├── payment/success/, payment/cancel/
+│   │   ├── admin/
+│   │   │   ├── page.tsx                    # Overview stats
+│   │   │   ├── organizations/, projects/
+│   │   │   ├── users/, payments/, reports/
+│   │   │   └── profile/
+│   │   ├── owner/
+│   │   │   ├── page.tsx
+│   │   │   ├── organizations/, projects/, tasks/
+│   │   │   └── profile/
+│   │   └── member/
+│   │       ├── page.tsx
+│   │       ├── tasks/, profile/
+│   ├── components/
+│   │   ├── layout/                         # Navbar, Footer, DashboardShell
+│   │   ├── auth/                           # DemoLogin, GoogleLoginButton
+│   │   ├── organizations/OrganizationList.tsx
+│   │   ├── projects/ProjectList.tsx
+│   │   └── tasks/TaskList.tsx, TaskComments.tsx
+│   ├── lib/
+│   │   ├── api.ts                          # Axios + all APIs
+│   │   └── utils.ts                        # getRoleRedirect, cn
+│   ├── store/authStore.ts                  # Zustand
+│   └── validators/auth.schema.ts
+├── .env
+└── package.json
+```
+
+```
+# 7. Auth Flow
+Email/Password:
+  Register/Login → bcrypt verify → signAccessToken + signRefreshToken
+  → localStorage + Zustand → role redirect
+
+Google:
+  GIS button → idToken → POST /auth/google
+  → verifyIdToken → findOrCreate User (role=MEMBER)
+  → JWT → /member
+
+Protected API:
+  Authorization: Bearer <accessToken>
+  401 → interceptor → POST /auth/refresh → retry
+  requireRole(['ADMIN','OWNER']) for mutations
+
+```
+
+```
+# 8. Payment Flow
+STRIPE:
+  Frontend pay() → POST /payments/initiate { method: STRIPE }
+  → Stripe Checkout Session → redirect checkoutUrl
+  → success_url → /payment/success → confirm-stripe → DB SUCCESS
+
+BKASH:
+  Frontend pay() → POST /payments/initiate { method: BKASH }
+  → createBkashPayment(callbackURL=backend/callback)
+  → response.bkashURL → window.location.href
+  → User pays on bKash → callback → execute → DB SUCCESS
+```
+
+
+```
+## 📡 API Endpoints Documentation
+
+<table>
+  <thead>
+    <tr>
+      <th align="center">Module</th>
+      <th align="left">HTTP Methods</th>
+      <th align="left">Endpoints</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>🔐 Auth</strong></td>
+      <td>
+        <code>POST</code><br/>
+        <code>GET</code>
+      </td>
+      <td>
+        <code>POST /auth/login</code><br/>
+        <code>POST /auth/register</code><br/>
+        <code>POST /auth/google</code><br/>
+        <code>POST /auth/refresh</code><br/>
+        <code>POST /auth/logout</code><br/>
+        <code>GET /auth/me</code>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>🏢 Organizations</strong></td>
+      <td>
+        <code>GET</code><br/>
+        <code>POST</code><br/>
+        <code>PATCH</code><br/>
+        <code>DELETE</code>
+      </td>
+      <td>
+        <code>GET /organizations</code><br/>
+        <code>POST /organizations</code><br/>
+        <code>GET /organizations/:id</code><br/>
+        <code>PATCH /organizations/:id</code><br/>
+        <code>DELETE /organizations/:id</code>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>📁 Projects</strong></td>
+      <td>
+        <code>GET</code><br/>
+        <code>POST</code><br/>
+        <code>PATCH</code><br/>
+        <code>DELETE</code>
+      </td>
+      <td>
+        <code>GET /projects</code><br/>
+        <code>POST /projects</code><br/>
+        <code>GET /projects/:id</code><br/>
+        <code>PATCH /projects/:id</code><br/>
+        <code>DELETE /projects/:id</code>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>✅ Tasks</strong></td>
+      <td>
+        <code>GET</code><br/>
+        <code>POST</code><br/>
+        <code>PATCH</code><br/>
+        <code>DELETE</code>
+      </td>
+      <td>
+        <code>GET /tasks</code><br/>
+        <code>POST /tasks</code><br/>
+        <code>PATCH /tasks/:id</code><br/>
+        <code>DELETE /tasks/:id</code><br/>
+        <code>PATCH /tasks/:id/status</code><br/>
+        <code>PATCH /tasks/:id/assign</code><br/>
+        <code>POST /tasks/:id/comments</code>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>💳 Payments</strong></td>
+      <td>
+        <code>GET</code><br/>
+        <code>POST</code>
+      </td>
+      <td>
+        <code>POST /payments/initiate</code><br/>
+        <code>GET /payments</code><br/>
+        <code>POST /payments/confirm-stripe</code><br/>
+        <code>GET /payments/bkash/callback</code>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>🛡️ Admin</strong></td>
+      <td>
+        <code>GET</code>
+      </td>
+      <td>
+        <code>GET /admin/dashboard</code><br/>
+        <code>GET /admin/users</code><br/>
+        <code>GET /admin/audit-logs</code>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>📩 Contact</strong></td>
+      <td>
+        <code>POST</code>
+      </td>
+      <td>
+        <code>POST /contact</code>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
+## 🌐 Base API URL
+
+<p>
+  <a href="https://project-management-saas-eta.vercel.app/api/v1">
+    <img src="https://img.shields.io/badge/API-Production-blue?style=for-the-badge&logo=fastapi&logoColor=white" alt="Production API" />
+  </a>
+</p>
+
+```text
+https://project-management-saas-eta.vercel.app/api/v1
+```
+
+## 📝 API Request Examples
+
+### Login
+
+```http
+POST /auth/login
+Content-Type: application/json
+```
+
+### Get Organizations
+
+```http
+GET /organizations
+Authorization: Bearer <token>
+```
+
+### Create Project
+
+```http
+POST /projects
+Authorization: Bearer <token>
+Content-Type: application/json
+```
+
+### Create Task
+
+```http
+POST /tasks
+Authorization: Bearer <token>
+Content-Type: application/json
+```
+
+---
+
+<p align="center">
+  <strong>🚀 Project Management SaaS API</strong><br/>
+  <sub>Authentication · Organizations · Projects · Tasks · Payments · Admin</sub>
+</p>
+```
+
+
