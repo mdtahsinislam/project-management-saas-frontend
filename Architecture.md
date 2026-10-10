@@ -33,7 +33,7 @@ Backend API,https://project-management-saas-eta.vercel.app/api/v1
 Database,Prisma Postgres (pooled.db.prisma.io)
 ```
 
-```
+
 <p align="center">
   <img src="https://img.shields.io/badge/Next.js_14%2B-000000?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js" />
   <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
@@ -46,4 +46,4 @@ Database,Prisma Postgres (pooled.db.prisma.io)
   <img src="https://img.shields.io/badge/Sonner-000000?style=for-the-badge" alt="Sonner" />
   <img src="https://img.shields.io/badge/Google_Identity_Services-4285F4?style=for-the-badge&logo=google&logoColor=white" alt="Google Identity Services" />
 </p>
-```
+
