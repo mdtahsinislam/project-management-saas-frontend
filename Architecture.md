@@ -189,3 +189,61 @@ Database,Prisma Postgres (pooled.db.prisma.io)
   <strong>🚀 Project Management SaaS</strong><br/>
   Built with Next.js, TypeScript, and Prisma Postgres.
 </p>
+
+
+
+# 4. Backend Folder Structure
+
+```
+project-management-saas/                    # Backend
+├── prisma/
+│   ├── schema.prisma                       # All models + enums
+│   └── seed.ts                             # Demo admin/owner/member
+├── src/
+│   ├── app/api/v1/
+│   │   ├── auth/
+│   │   │   ├── login/route.ts
+│   │   │   ├── register/route.ts
+│   │   │   ├── google/route.ts
+│   │   │   ├── refresh/route.ts
+│   │   │   ├── logout/route.ts
+│   │   │   └── me/route.ts
+│   │   ├── organizations/
+│   │   │   ├── route.ts                    # GET list, POST create
+│   │   │   └── [id]/route.ts               # GET, PATCH, DELETE
+│   │   ├── projects/
+│   │   │   ├── route.ts
+│   │   │   └── [id]/route.ts
+│   │   ├── tasks/
+│   │   │   ├── route.ts
+│   │   │   └── [id]/
+│   │   │       ├── route.ts                # GET, PATCH, DELETE
+│   │   │       ├── status/route.ts
+│   │   │       ├── assign/route.ts
+│   │   │       └── comments/route.ts
+│   │   ├── payments/
+│   │   │   ├── initiate/route.ts           # Stripe + bKash
+│   │   │   ├── confirm-stripe/route.ts
+│   │   │   ├── bkash/callback/route.ts
+│   │   │   └── route.ts                    # list payments
+│   │   ├── admin/
+│   │   │   ├── dashboard/route.ts
+│   │   │   ├── users/route.ts
+│   │   │   └── audit-logs/route.ts
+│   │   └── contact/route.ts
+│   ├── lib/
+│   │   ├── prisma.ts
+│   │   ├── jwt.ts
+│   │   ├── auth.ts                         # requireAuth, requireRole
+│   │   ├── response.ts
+│   │   ├── stripe.ts
+│   │   ├── bkash.ts
+│   │   ├── redis.ts                        # optional cache
+│   │   └── rateLimit.ts
+│   ├── validators/                         # Zod schemas
+│   ├── services/
+│   └── types/
+├── .env
+└── package.json
+
+```
