@@ -484,4 +484,68 @@ Content-Type: application/json
 </p>
 ```
 
+```
+# 10. Request Lifecycle
+Browser
+  → Axios (Bearer token)
+  → Vercel Frontend (optional SSR)
+  → Vercel Backend API Route
+  → requireAuth / requireRole
+  → Zod validate
+  → Prisma / Stripe / bKash
+  → successResponse / errorResponse
+  → React Query cache invalidate
+  → UI update + toast
+```
+
+```
+11. Deployment Architecture
+┌─────────────────────────────────────────┐
+│              Vercel                      │
+│  ┌─────────────┐    ┌─────────────────┐ │
+│  │  Frontend   │    │    Backend      │ │
+│  │  project    │───►│    project      │ │
+│  │  (static+   │    │    (API routes) │ │
+│  │   SSR)      │    └────────┬────────┘ │
+│  └─────────────┘             │          │
+└──────────────────────────────┼──────────┘
+                               │
+                    Prisma Postgres (cloud)
+                               │
+              Stripe API  ·  bKash Sandbox  ·  Google OAuth
+```
+
+## 13. 🔑 Demo Credentials (Seed Data)
+
+<table>
+  <thead>
+    <tr>
+      <th align="center">Role</th>
+      <th align="left">Email</th>
+      <th align="left">Password</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center"><strong>🛡️ ADMIN</strong></td>
+      <td><code>admin@demo.com</code></td>
+      <td><code>Admin@123</code></td>
+    </tr>
+    <tr>
+      <td align="center"><strong>👑 OWNER</strong></td>
+      <td><code>owner@demo.com</code></td>
+      <td><em>As configured in seed data</em></td>
+    </tr>
+    <tr>
+      <td align="center"><strong>👤 MEMBER</strong></td>
+      <td><code>member@demo.com</code></td>
+      <td><em>As configured in seed data</em></td>
+    </tr>
+  </tbody>
+</table>
+
+> **⚠️ Note:** These credentials are intended for demo and testing purposes only. OWNER and MEMBER passwords depend on your database seed configuration. Do not use demo credentials in production.
+
+```
+
 
