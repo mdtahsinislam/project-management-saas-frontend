@@ -15,7 +15,7 @@
 - Role-based Access: `ADMIN` | `OWNER` | `MEMBER`
 
 ---
-
+ 
 ## Demo Credentials
 
 | Role   | Email              | Password    |
