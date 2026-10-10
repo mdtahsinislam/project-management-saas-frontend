@@ -517,7 +517,7 @@ Browser
 
 ## 13. 🔑 Demo Credentials (Seed Data)
 
-<table>
+<!-- <table>
   <thead>
     <tr>
       <th align="center">Role</th>
@@ -542,7 +542,15 @@ Browser
       <td><em>As configured in seed data</em></td>
     </tr>
   </tbody>
-</table>
+</table> -->
+
+## Demo Credentials
+
+| Role   | Email              | Password    |
+|--------|--------------------|-------------|
+| ADMIN  | admin@demo.com     | Admin@123   |
+| OWNER  | owner@demo.com     | Owner@123   |
+| MEMBER | member@demo.com    | Member@123  |
 
 > **⚠️ Note:** These credentials are intended for demo and testing purposes only. OWNER and MEMBER passwords depend on your database seed configuration. Do not use demo credentials in production.
 
