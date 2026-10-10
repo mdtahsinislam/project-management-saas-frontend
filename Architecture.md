@@ -77,7 +77,7 @@ Database,Prisma Postgres (pooled.db.prisma.io)
                            │ • Google login default  │
                            └─────────────────────────┘
 ```
-```
+
 ## 🔐 Role-Based Access Control (RBAC)
 
 <table>
@@ -102,4 +102,4 @@ Database,Prisma Postgres (pooled.db.prisma.io)
     </tr>
   </tbody>
 </table>
-```
+
