@@ -332,7 +332,7 @@ export default function ContactPage() {
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
-
+ {/* Solve Message pass error */}
           <div>
             <label className="text-sm text-slate-300">Message</label>
             <textarea
