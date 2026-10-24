@@ -1,5 +1,5 @@
 **Bug Report — Project Management SaaS (ProjectFlow)**  
-Google Docs-এ কপি-পেস্ট করার জন্য ready।
+
 
 ---
 
@@ -474,12 +474,23 @@ All critical and high-severity bugs found during development and deployment of P
 
 ---
 
-**Google Docs বানানোর ধাপ**
+```
 
-1. [docs.google.com](https://docs.google.com) → Blank document  
-2. উপরের পুরো লেখা **Copy → Paste**  
-3. Title: `Bug Report - ProjectFlow - MD. Tahsin Islam`  
-4. Share → Anyone with the link (Viewer)  
-5. Link কপি করে Assignment submission-এ দিন  
 
-Repo link এখনো না থাকলে GitHub-এ push করে সেই URL টেবিলে বসিয়ে নিন।
+Live Frontend : https://project-management-saas-frontend-one.vercel.app/
+
+LIve Backend : https://project-management-saas-eta.vercel.app/
+
+Frontend Repo : https://github.com/mdtahsinislam/project-management-saas-frontend
+
+Backend Repo : https://github.com/mdtahsinislam/project-management-saas
+
+Bug Report: https://docs.google.com/document/d/1NuUKLRDWV453oX0tQdCyckeHWL2p-WLIfoqZSSBKgWk/edit?usp=sharing
+
+Problem-solving Repo : https://github.com/mdtahsinislam/project-management-saas-frontend
+
+
+
+
+
+```
