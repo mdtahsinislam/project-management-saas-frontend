@@ -266,3 +266,5 @@ export default function PaymentSuccessPage() {
     </div>
   );
 }
+
+// Solve Pricing error pass error
